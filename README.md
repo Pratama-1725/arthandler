@@ -32,3 +32,12 @@ Akun awal: `admin` / `admin123` (Admin), `pemilik` / `pemilik123` (Pemilik). **G
 | 2 | Transaksi, Penawaran (rincian, edit, setuju/tolak, cetak) | ⬜ |
 | 3 | Invoice + nomor + pembayaran, laporan, kelola pengguna | ⬜ |
 | 4 | Uji blackbox, deploy InfinityFree, sinkron Bab IV | ⬜ |
+
+## Deploy (InfinityFree)
+
+- Domain `arthandler.infinityfreeapp.com`, akun `if0_43512831`, MySQL host `sql309.infinityfree.com`.
+- Kredensial di `.env.production` (tidak di-commit). Saat deploy diunggah sebagai `.env`.
+- Status 23 Nov 2026: akun dibuat; database belum, karena harus login cPanel sekali dulu dan
+  `cpanel.infinityfree.com` timeout dari jaringan kantor. Coba dari jaringan lain.
+- Sisa langkah: buat database `arthandler` → impor `database/arthandler.sql` lewat phpMyAdmin →
+  unggah isi folder ini ke `htdocs/` lewat File Manager → isi `.env` → ganti password admin/pemilik.
