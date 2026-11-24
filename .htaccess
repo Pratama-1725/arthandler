@@ -2,3 +2,12 @@ Options -Indexes
 <FilesMatch "^\.(env|gitignore)">
   Require all denied
 </FilesMatch>
+
+# Font lokal: tipe MIME benar + disimpan di cache browser agar tidak diunduh ulang tiap halaman
+# (mencegah teks "melompat" saat font berganti). CSS memakai penanda versi ?v=, jadi aman di-cache lama.
+AddType font/woff2 .woff2
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType text/css "access plus 30 days"
+</IfModule>
