@@ -75,6 +75,7 @@ p.subtitle b{color:var(--terra-ink)}
 
 /* ------------------------------------------------------------ panel */
 .panel{background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px;margin-bottom:20px;box-shadow:var(--shadow);overflow-x:auto}
+.tabel-geser{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:100%}
 .panel-title{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:16px}
 .panel-title h2{font-size:20px;margin:0;position:relative;padding-left:14px}
 .panel-title h2::before{content:"";position:absolute;left:0;top:.2em;bottom:.2em;width:4px;border-radius:4px;background:linear-gradient(180deg,var(--terra),var(--oker))}
@@ -205,16 +206,20 @@ body.login{display:flex;flex-direction:column;align-items:center;justify-content
   .cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
   .card{padding:16px 14px 14px}
   .card strong{font-size:22px}
-  .panel{padding:14px;border-radius:14px;-webkit-overflow-scrolling:touch}
+  .panel{padding:14px;border-radius:14px;overflow-x:visible}
   .panel-title h2{font-size:18px}
   .formgrid{grid-template-columns:1fr}
   .toolbar input,.toolbar select{width:100%;min-width:0}
   .toolbar .btn{flex:1 1 auto}
 
-  /* tabel: geser di dalam panel, dengan penanda */
-  table{min-width:640px}
-  .inv-head table{min-width:0}
-  .panel:has(table)::before{content:"geser tabel →";display:block;position:sticky;left:0;text-align:right;font-size:11px;font-style:italic;color:var(--terra-ink);margin:-4px 0 6px}
+  /* tabel: hanya tabel yang digeser (wadah .tabel-geser dibuat oleh inc/footer.php) */
+  .tabel-geser table{min-width:600px}
+  .tabel-geser.kecil table{min-width:0}
+  .tabel-geser.bisa-geser::before{content:"geser tabel →";display:block;position:sticky;left:0;width:100%;text-align:right;font-size:11px;font-style:italic;color:var(--terra-ink);margin:0 0 6px}
+  td.empty{white-space:normal;text-align:left}
+  /* kolom aksi: tombol berjajar satu baris (digeser bersama tabel), baris tidak memanjang ke bawah */
+  td:has(> .btn),td:has(> form.inline){white-space:nowrap}
+  td > .btn + .btn,td > .btn + form.inline,td > form.inline + form.inline,td > form.inline + .btn{margin-left:6px}
 
   /* target sentuh >= 44px */
   input:not([type=checkbox]):not([type=radio]),select,textarea{min-height:44px;font-size:16px}
