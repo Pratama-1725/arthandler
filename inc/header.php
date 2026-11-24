@@ -34,7 +34,7 @@ $menu = [
     <?php foreach ($menu as $hal => [$label, $ikon]): ?>
       <a href="<?= $hal ?>.php" data-icon="<?= $ikon ?>" class="<?= $aktif === $hal ? 'active' : '' ?>"><?= e($label) ?></a>
     <?php endforeach; ?>
-    <a href="logout.php" data-icon="⎋" class="logout">Logout</a>
+    <form method="post" action="logout.php"><?= input_csrf() ?><button type="submit" data-icon="⎋" class="logout">Logout</button></form>
   </nav>
   <div class="sidebar-bottom">Operational &amp; Billing System</div>
 </aside>
