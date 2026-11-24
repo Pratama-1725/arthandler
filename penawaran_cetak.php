@@ -19,22 +19,26 @@ $rinci = pnw_detail($db, $id);
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Penawaran <?= e($p['no_penawaran']) ?> · ArtHandler</title>
 <style>
+  @font-face{font-family:"Playfair Display";font-style:normal;font-weight:700;font-display:swap;src:url("assets/fonts/PlayfairDisplay-700.woff2") format("woff2")}
+  @font-face{font-family:"Playfair Display";font-style:italic;font-weight:700;font-display:swap;src:url("assets/fonts/PlayfairDisplay-700i.woff2") format("woff2")}
+  @font-face{font-family:"Poppins";font-style:normal;font-weight:400;font-display:swap;src:url("assets/fonts/Poppins-400.woff2") format("woff2")}
+  @font-face{font-family:"Poppins";font-style:normal;font-weight:600;font-display:swap;src:url("assets/fonts/Poppins-600.woff2") format("woff2")}
   *{box-sizing:border-box}
-  body{margin:0;background:#eef1f6;font-family:Inter,Segoe UI,Arial,sans-serif;color:#172033;font-size:13px}
-  .kertas{background:#fff;width:210mm;min-height:297mm;margin:20px auto;padding:18mm 16mm;box-shadow:0 4px 18px rgba(0,0,0,.08)}
-  .kop{display:flex;justify-content:space-between;align-items:flex-start;border-bottom:3px solid #101a2e;padding-bottom:12px;margin-bottom:18px}
-  .kop .brand{font-size:24px;font-weight:800}.kop .brand span{color:#2563eb}.kop small{color:#718096}
-  .kop .dok{text-align:right}.kop .dok h1{margin:0;font-size:18px;letter-spacing:1px}
+  body{margin:0;background:#F6EEE3;font-family:Poppins,system-ui,"Segoe UI",Arial,sans-serif;color:#3F3A35;font-size:13px}
+  .kertas{background:#fff;width:210mm;max-width:100%;min-height:297mm;margin:20px auto;padding:18mm 16mm;box-shadow:0 10px 28px rgba(78,72,65,.12)}
+  .kop{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;border-bottom:1.5px solid #4E4841;padding-bottom:12px;margin-bottom:18px;box-shadow:0 3px 0 -2px #4E4841}
+  .kop .brand{font-family:"Playfair Display",Georgia,serif;font-size:28px;font-weight:700;font-style:italic;color:#CF5931}.kop .brand span{font-style:normal;color:#4E4841}.kop small{color:#6B6560}
+  .kop .dok{text-align:right}.kop .dok h1{margin:0;font-family:"Playfair Display",Georgia,serif;font-size:20px;letter-spacing:2px;color:#4E4841}
   .info{display:flex;justify-content:space-between;gap:20px;margin-bottom:16px}.info td{padding:2px 8px 2px 0;vertical-align:top}
   table.rinci{width:100%;border-collapse:collapse}
-  table.rinci th{background:#e5e7eb;text-align:left;padding:8px;border:1px solid #cbd5e1;-webkit-print-color-adjust:exact;print-color-adjust:exact}
-  table.rinci td{padding:8px;border:1px solid #cbd5e1}.num{text-align:right}
-  table.rinci tfoot td{font-weight:800;font-size:14px}
+  table.rinci th{background:#F6EEE3;color:#4E4841;text-align:left;padding:8px;border-top:1.5px solid #4E4841;border-bottom:1.5px solid #4E4841;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  table.rinci td{padding:8px;border-bottom:.5px solid #CFC3B5}.num{text-align:right}
+  table.rinci tfoot td{font-family:"Playfair Display",Georgia,serif;font-weight:700;font-size:15px;border-top:1.5px solid #4E4841;border-bottom:1.5px solid #4E4841}
   .catatan{margin-top:14px}.ttd{margin-top:50px;display:flex;justify-content:flex-end}.ttd div{text-align:center;width:220px}
-  .ttd .nama{margin-top:70px;border-top:1px solid #172033;padding-top:4px;font-weight:700}
-  .alat{text-align:center;margin:16px}.alat button,.alat a{border:0;border-radius:8px;padding:10px 14px;background:#2563eb;color:#fff;font:inherit;font-weight:600;cursor:pointer;text-decoration:none;margin:0 4px}
-  .alat a{background:#e9eef8;color:#26334a}
-  @media print{body{background:#fff}.kertas{margin:0;width:auto;min-height:0;box-shadow:none;padding:0}.alat{display:none}@page{size:A4;margin:15mm}}
+  .ttd .nama{margin-top:70px;border-top:1px solid #4E4841;padding-top:4px;font-weight:600}
+  .alat{text-align:center;margin:16px}.alat button,.alat a{display:inline-block;border:0;border-radius:30px;padding:11px 20px;background:linear-gradient(135deg,#B04420,#C4532C);color:#fff;font:inherit;font-weight:600;cursor:pointer;text-decoration:none;margin:4px}
+  .alat a{background:#fff;color:#1F6A83;box-shadow:inset 0 0 0 1.5px #3797B8}
+  @media print{body{background:#fff;color:#000}.kertas{margin:0;width:auto;min-height:0;box-shadow:none;padding:0}.kop .brand,.kop .brand span,.kop .dok h1{color:#000}table.rinci th{background:#eee}.alat{display:none}@page{size:A4;margin:15mm}}
 </style>
 </head>
 <body>

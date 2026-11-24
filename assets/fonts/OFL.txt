@@ -1,0 +1,9 @@
+Font yang disertakan (subset latin, format woff2, diunduh dari Google Fonts):
+
+- Playfair Display (700, 700 italic)
+  Copyright 2017 The Playfair Display Project Authors (https://github.com/clauseggers/Playfair-Display)
+- Poppins (400, 500, 600)
+  Copyright 2020 The Poppins Project Authors (https://github.com/itfoundry/Poppins)
+
+Kedua font dilisensikan di bawah SIL Open Font License, Version 1.1.
+Teks lengkap lisensi: https://openfontlicense.org/open-font-license-official-text/

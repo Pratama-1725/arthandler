@@ -71,9 +71,9 @@ $judul = 'Laporan';
 $aktif = 'laporan';
 require __DIR__ . '/inc/header.php';
 ?>
-<style>@media print{.cards{grid-template-columns:repeat(4,1fr)}.card{border:1px solid #999}}</style>
+<style>@media print{.cards{grid-template-columns:repeat(4,1fr)}.card{border:1px solid #999}.card strong{font-size:18px}}</style>
 <div class="only-print" style="border-bottom:2px solid #000;padding-bottom:10px;margin-bottom:16px">
-  <b style="font-size:22px">ArtHandler</b><br>Laporan Periode <?= tanggal($awal) ?> – <?= tanggal($akhir) ?>
+  <b style="font-size:24px;font-family:var(--serif)">ArtHandler</b><br>Laporan Periode <?= tanggal($awal) ?> – <?= tanggal($akhir) ?>
 </div>
 <h1>Laporan</h1>
 <p class="subtitle">Rekap periode <b><?= tanggal($awal) ?> – <?= tanggal($akhir) ?></b>: transaksi, pendapatan, piutang, dan rekap per jenis jasa.</p>
@@ -123,7 +123,7 @@ require __DIR__ . '/inc/header.php';
         <td><a href="invoice.php?id=<?= (int) $b['id_invoice'] ?>"><?= e($b['no_invoice']) ?></a></td><td><?= e($b['nama_klien']) ?></td>
         <td><?= tanggal($b['tgl_invoice']) ?></td><td><?= tanggal($b['jatuh_tempo']) ?></td>
         <td class="num"><?= rupiah($b['total']) ?></td><td class="num"><?= rupiah($b['terbayar']) ?></td><td class="num"><?= rupiah($b['sisa']) ?></td>
-        <td><span class="badge <?= $b['status'] === 'sebagian' ? 'pending' : 'danger' ?>"><?= $b['status'] === 'sebagian' ? 'Sebagian' : 'Belum Bayar' ?></span></td>
+        <td><span class="badge <?= $b['status'] === 'sebagian' ? 'pending sebagian' : 'danger' ?>"><?= $b['status'] === 'sebagian' ? 'Sebagian' : 'Belum Bayar' ?></span></td>
       </tr>
     <?php endforeach; ?>
     <?php if (!$belum_lunas): ?><tr><td colspan="8" class="empty">Tidak ada invoice belum lunas</td></tr><?php endif; ?>

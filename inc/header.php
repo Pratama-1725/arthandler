@@ -3,20 +3,21 @@
 $u = pengguna();
 $menu = [
     'admin' => [
-        'dashboard' => ['Dashboard', '⌂'],
-        'klien'     => ['Data Klien', '♙'],
-        'jasa'      => ['Jenis Jasa', '✦'],
-        'transaksi' => ['Transaksi', '▣'],
-        'penawaran' => ['Penawaran Harga', '▤'],
-        'invoice'   => ['Invoice', '▧'],
+        'dashboard' => ['Dashboard', '⌂', 'Beranda'],
+        'klien'     => ['Data Klien', '♙', 'Klien'],
+        'jasa'      => ['Jenis Jasa', '✦', 'Jasa'],
+        'transaksi' => ['Transaksi', '▣', 'Transaksi'],
+        'penawaran' => ['Penawaran Harga', '▤', 'Tawaran'],
+        'invoice'   => ['Invoice', '▧', 'Invoice'],
     ],
     'pemilik' => [
-        'dashboard' => ['Dashboard', '⌂'],
-        'invoice'   => ['Invoice', '▧'],
-        'laporan'   => ['Laporan', '▥'],
-        'pengguna'  => ['Kelola Pengguna', '♟'],
+        'dashboard' => ['Dashboard', '⌂', 'Beranda'],
+        'invoice'   => ['Invoice', '▧', 'Invoice'],
+        'laporan'   => ['Laporan', '▥', 'Laporan'],
+        'pengguna'  => ['Kelola Pengguna', '♟', 'Pengguna'],
     ],
 ][$u['peran']];
+// Elemen ketiga = label pendek untuk bottom navigation di HP (atribut data-short).
 ?>
 <!DOCTYPE html>
 <html lang="id">
@@ -31,15 +32,16 @@ $menu = [
 <aside class="sidebar">
   <div class="brand">Art<span>Handler</span></div>
   <nav class="nav">
-    <?php foreach ($menu as $hal => [$label, $ikon]): ?>
-      <a href="<?= $hal ?>.php" data-icon="<?= $ikon ?>" class="<?= $aktif === $hal ? 'active' : '' ?>"><?= e($label) ?></a>
+    <?php foreach ($menu as $hal => [$label, $ikon, $pendek]): ?>
+      <a href="<?= $hal ?>.php" data-icon="<?= $ikon ?>" data-short="<?= e($pendek) ?>" class="<?= $aktif === $hal ? 'active' : '' ?>"><?= e($label) ?></a>
     <?php endforeach; ?>
-    <form method="post" action="logout.php"><?= input_csrf() ?><button type="submit" data-icon="⎋" class="logout">Logout</button></form>
+    <form method="post" action="logout.php"><?= input_csrf() ?><button type="submit" data-icon="⎋" data-short="Logout" class="logout">Logout</button></form>
   </nav>
   <div class="sidebar-bottom">Operational &amp; Billing System</div>
 </aside>
 <main class="main">
   <div class="topbar">
+    <div class="topbrand" aria-hidden="true">Art<span>Handler</span></div>
     <div class="crumb">ArtHandler / <span><?= e($judul) ?></span></div>
     <div class="user"><?= e($u['nama']) ?> · <?= $u['peran'] === 'admin' ? 'Admin' : 'Pemilik' ?></div>
   </div>

@@ -7,7 +7,7 @@ $db = db();
 $admin = $u['peran'] === 'admin';
 
 $label_status = ['belum_bayar' => 'Belum Bayar', 'sebagian' => 'Sebagian', 'lunas' => 'Lunas'];
-$kelas_status = ['belum_bayar' => 'danger', 'sebagian' => 'pending', 'lunas' => ''];
+$kelas_status = ['belum_bayar' => 'danger', 'sebagian' => 'pending sebagian', 'lunas' => ''];
 
 /** Tanggal Y-m-d yang valid. */
 function inv_tgl_valid(string $s): bool
@@ -297,11 +297,11 @@ require __DIR__ . '/inc/header.php';
 .inv-head{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:16px;font-size:13px}
 .inv-head table{width:auto}.inv-head td{border:0;padding:3px 10px 3px 0;background:none!important}
 .inv-sum{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:14px 0}
-.inv-sum div{background:#f8fafc;border:1px solid var(--line);border-radius:10px;padding:12px}
-.inv-sum small{color:var(--muted);font-size:12px}.inv-sum b{display:block;font-size:18px;margin-top:4px}
-.kop{border-bottom:2px solid #000;padding-bottom:10px;margin-bottom:16px}.kop b{font-size:22px}
+.inv-sum div{background:var(--cream);border:1px solid var(--line);border-top:3px solid var(--oker);border-radius:12px;padding:12px 14px}
+.inv-sum small{color:var(--muted);font-size:12px}.inv-sum b{display:block;font-family:var(--serif);font-size:20px;color:var(--brown);margin-top:4px}
+.kop{border-bottom:2px solid #000;padding-bottom:10px;margin-bottom:16px}.kop b{font-family:var(--serif);font-size:24px}
 @media(max-width:620px){.inv-sum{grid-template-columns:1fr}}
-@media print{.inv-sum div{border:1px solid #999}}
+@media print{.inv-sum div{background:none;border:1px solid #999}.inv-sum b{color:#000}}
 </style>
 
 <?php if ($detail): ?>

@@ -60,6 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body class="login">
 <form class="login-box" method="post" autocomplete="off">
   <div class="brand">Art<span>Handler</span></div>
+  <p class="tagline">Handle the art, we handle the work.</p>
   <p>Sistem Informasi Manajemen Order dan Invoice</p>
   <?= tampil_pesan() ?>
   <?php if ($galat): ?><div class="alert error"><?= e($galat) ?></div><?php endif; ?>
